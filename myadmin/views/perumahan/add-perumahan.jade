@@ -1,0 +1,55 @@
+extends ../layout/base
+block content
+    section.content-header
+        h1
+            | Add Rumah
+            small it all starts here
+        ol.breadcrumb
+            li
+                a(href='#')
+                    i.fa.fa-dashboard
+            li.active Here
+    section.content
+        .box
+            .box-header.with-border
+                h3.box-title
+                    | Perumahan
+                .box-tools.pull-right
+                    button(type='button', data-widget='collapse', datatoggle='tooltip',title='collapse').btn.btn-box-tool
+                        i.fa.fa-minus
+
+            .box-body
+                form(role='form',method='post' action='/perumahan/add')
+                    .row
+
+                        .col-xs-6
+                            .box-body
+                                - if (messages.msg_error)
+                                    .alert.alert-danger.alert-dismissable
+                                        button.close(type='button', datadismiss='alert', aria-hidden='true')
+                                            | ×
+                                        h4
+                                            i.icon.fa.fa-ban
+                                            | Alert!
+                                        | !{messages.msg_error}
+                                .form-group
+                                    label
+                                        | Pemilik
+                                    input(type='text',value='#{pemilik}',name='pemilik',placeholder='Enter pemilik', autofocus).form-control
+                                .form-group
+                                    label
+                                        | Alamat
+                                    input(type='text',name='alamat',placeholder='Enter alamat').form-control
+                                .form-group
+                                    label
+                                        | Phone
+                                    input(type='text', name='phone',placeholder='Enter phone').form-control
+                                .form-group
+                                    label
+                                        | NIK
+                                    input(type='text',name='NIK',placeholder='Enter NIK').form-control
+                                .box-footer
+                                    button(type='submit').btn.btn-primary
+                                        | Submit
+                                    a(href='/perumahan').btn.btn-primary.pullright
+                                        | Back
